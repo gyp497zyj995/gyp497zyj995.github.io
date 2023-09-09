@@ -1,1 +1,0 @@
-var posts=["2023/09/09/Promise-源码/","2023/09/06/hello-world/","2023/09/08/react-useState/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
