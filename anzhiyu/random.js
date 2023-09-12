@@ -1,1 +1,1 @@
-var posts=["2023/09/09/hello-world/","2023/09/09/Promise-源码/","2023/09/08/react-useState/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
+var posts=["2023/09/09/Hexo-多台电脑管理hexo/","2023/09/09/Promise-源码/","2023/09/09/hello-world/","2023/09/08/react-useState/"];function toRandomPost(){pjax.loadUrl('/'+posts[Math.floor(Math.random() * posts.length)]);};
