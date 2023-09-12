@@ -54,6 +54,46 @@ useState 是实际发生的情况如下：
 > `Hooks`以`use`开头的函数只能在组件的最顶层调用，不能在条件语句、循环语句或其他嵌套函数内调用`Hook`。
 > `const [count, setCount]` 最好使用驼峰命名，因为按照约定命名更加容易理解。
 
+## 传递函数作为 useState 的初始值
+
+如果`useState`的初始值为函数，则这个函数将被视为初始化函数。它应该是纯函数，不应该接受任何参数。并且该函数必须返回一个任何类型的值。当初始化组件时，`React`将调用你的初始化函数，并将其返回值存储为初始状态。
+
+```JavaScript
+import React, { useState } from "react";
+
+function createList() {
+  let list = [];
+  for (let i = 0; i <= 50; i++) {
+    list.push("item" + i);
+  }
+  return list;
+}
+
+export default function HooksState() {
+  const [list, setList] = useState(createList);
+  return (
+    <ul>
+      {list.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+```
+
+尽管`React`只在初始渲染时保存初始状态，后续渲染时将其忽略。但是在上边这个例子中，`createList()`的结果仅用于初始渲染，但你仍然在每次渲染时调用此函数。如果它创建大数组或者执行昂贵的计算，这可能会浪费资源。
+
+为了避免出现每次渲染都去调用此函数，我们可以将`createList`作为初始化函数传递给`useState`
+
+```JavaScript
+function HooksState() {
+  const [list, setList] = useState(createList);
+  // ...
+}
+```
+注意，现在我们传递的是`createList`函数本身，而不是`createList()`调用该函数的结果。如果将函数传递给`useState`,`React`仅在初始化期间调用它。
+
 ## state 是组件私有的状态
 
 `state`是组件实例内部的状态。如果渲染同一个组件两次，每个组件实例都会完全隔离`state`。改变其中一个组件实例的状态，并不会影响到另一个组件实例中的状态。`state`完全私有于声明它的组件，父组件无法更改它的`state`。
