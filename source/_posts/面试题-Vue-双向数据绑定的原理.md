@@ -3,7 +3,7 @@ title: 面试题-Vue-双向数据绑定的原理
 date: 2023-09-13 13:20:06
 tags: [面试题, Vue]
 categoryies: Vue
-cover:
+cover: https://pic.imgdb.cn/item/6518058bc458853aef57cd94.png
 ---
 
 ## Vue 的基本原理

@@ -3,6 +3,7 @@ title: JS-数据类型检测有哪些
 date: 2023-09-13 12:51:28
 tags: [面试题, 数据类型]
 categories: 面试题
+cover: https://pic.imgdb.cn/item/65180673c458853aef57e67e.png
 ---
 
 ## typeof
